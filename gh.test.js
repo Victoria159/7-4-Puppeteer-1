@@ -1,16 +1,14 @@
 let page;
-let anotherPage;
+
+afterEach(async () => {
+  await page.close();
+});
+beforeEach(async () => {
+  page = await browser.newPage();
+  await page.goto("https://github.com/team");
+});
 
 describe("Github page tests", () => {
-  beforeEach(async () => {
-    page = await browser.newPage();
-    await page.goto("https://github.com/team");
-  });
-
-  afterEach(async () => {
-    await page.close();
-  });
-
   test("The h1 header content'", async () => {
     await page.setDefaultTimeout(3000);
     const firstLink = await page.$("header div div a");
