@@ -35,9 +35,7 @@ describe("Securuty Page", () => {
     anotherPage = await browser.newPage();
     await anotherPage.goto("https://github.com/features/security");
   });
-  afterEach(async () => {
-    await anotherPage.close();
-  });
+
   test("Text of Header Buttom", async () => {
     const headerElement = await anotherPage.$(
       "div.sub-nav-mktg.js-toggler-container.js-sticky.js-position-sticky.top-0.width-full.z-3 > div > a"
